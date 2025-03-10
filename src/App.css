@@ -3,6 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {
@@ -41,19 +44,40 @@
   color: #888;
 }
 
+.weather-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
 .weather-card {
-  min-height: 300px;
+  flex: 0 1 calc(20% - 1rem);
+  min-width: 250px;
   border: 1px solid #ccc;
-  margin: 0 .2rem;
-  width: 50%;
+  margin: 0;
   display: flex;
   flex-direction: column;
   color: #333;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.weather-card:hover {
+  transform: scale(1.02) translateZ(20px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 8px 12px rgba(0, 0, 0, 0.1);
 }
 
 .weather-card-header {
-  width: 100%;
-  background-color: whitesmoke;
+  padding: 0.5rem;
 }
 
 .weather-card-content {
@@ -61,12 +85,9 @@
   color: #333;
   text-shadow: none;
   background-color: lightblue;
-}
-
-.weather-container {
+  flex: 1;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
 }
 
 .temperature {
@@ -87,4 +108,75 @@
 .short-forecast {
   font-size: 1rem;
   font-weight: bold;
+}
+
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  padding: 1rem;
+}
+
+.search-input-container {
+  display: flex;
+  gap: 0.5rem;
+  /* background: white; */
+  padding: 0.5rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid wheat;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  /* color: #333; */
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.search-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: white;
+  background: #646cff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.search-button:hover {
+  background: #535bf2;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.search-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #646cff, #535bf2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
