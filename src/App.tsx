@@ -3,6 +3,8 @@ import Search from './Search'
 import './App.css'
 import { useState } from 'react';
 
+const NUMBER_OF_CARDS = 8;
+
 function App() {
   const [weatherPeriods, setWeatherPeriods] = useState([]);
 
@@ -18,7 +20,7 @@ function App() {
     <div className="app-container">
       <h1>Weather Forecast</h1>
       <Search onSearch={handleSearch} />
-      <Weather weatherPeriods={weatherPeriods} numberOfDays={5} />
+      <Weather weatherPeriods={weatherPeriods} numberOfCards={8} />
     </div>
   );
 }
